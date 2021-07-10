@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Map</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>List of Coordinates</h1>
+        <table class="table table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Desc</th>
+                    <th>Lat</th>
+                    <th>Lng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for elem in coord %}
+                <tr>
+                    <td>{{ elem.id }}</td>
+                    <td>{{ elem.name }}</td>
+                    <td>{{ elem.description }}</td>
+                    <td>{{ elem.lat }}</td>
+                    <td>{{ elem.lng }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+
+</html>
